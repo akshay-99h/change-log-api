@@ -11,7 +11,9 @@ export const createNewUser = async (req, res) => {
             },
         });
         const token = createJWT(user)
-        res.json({ token });
+        res.json({
+            token,
+            data: user});
     } catch (e) {
         console.error(e);
         res.status(500);

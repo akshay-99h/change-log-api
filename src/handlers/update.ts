@@ -1,4 +1,4 @@
-import exp from "constants";
+// import exp from "constants";
 import prisma from "../db"
 
 export const getOneUpdate = async (req, res) => {

@@ -51,6 +51,9 @@ CREATE TABLE "UpdatePoint" (
 -- CreateIndex
 CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "Product_id_belongsToId_key" ON "Product"("id", "belongsToId");
+
 -- AddForeignKey
 ALTER TABLE "Product" ADD CONSTRAINT "Product_belongsToId_fkey" FOREIGN KEY ("belongsToId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 

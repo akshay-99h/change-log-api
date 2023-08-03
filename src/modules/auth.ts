@@ -16,7 +16,7 @@ export const hashPassword = (password) => {
     // 30 is insane and slow and will make you cry
     // 35 is insane and slow and will make you cry and die
     // salting is known as the process of adding random data to a password to make it harder to crack
-    // the more salt you add the harder it is to crack but the longer it takes to crack 
+    // the more salt you add the harder it is to crack but the longer it takes to crack
 }
 
 export const createJWT = (user) => {
@@ -28,6 +28,13 @@ export const createJWT = (user) => {
     );
     return token;
 }
+/* 
+    `jwt.sign` is a function provided by the `jsonwebtoken` library in TypeScript. It
+    is used to generate a JSON Web Token (JWT) by signing a payload with a secret key.
+    The payload typically contains information about the user or entity that the token
+    represents. The secret key is used to verify the authenticity of the token later
+    on. 
+*/
 
 export const protect = (req, res, next) => {
     const bearer = req.headers.authorization;
@@ -51,8 +58,9 @@ export const protect = (req, res, next) => {
     }
 
     try {
-        const user = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = user;
+        const payload = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = payload;
+        console.log(payload);
         next();
     } catch (e) {
         console.error(e);

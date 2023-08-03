@@ -59,6 +59,6 @@ model UpdatePoint {
   name        String @db.VarChar(255)
   description String
 
-  updateID String
-  update   Update @relation(fields: [updateID], references: [id])
+  updateId String
+  update   Update @relation(fields: [updateId], references: [id])
 }

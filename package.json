@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
     "tap": "nodemon src/index.ts"
   },

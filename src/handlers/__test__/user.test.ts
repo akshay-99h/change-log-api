@@ -12,4 +12,7 @@ describe('user handler', () => {
         }
     await user.createNewUser(req, res);
     })
-    })
+})
+    
+
+// use beforeAll, afterAll, beforeEach, afterEach to delete the entire database before and after testing
